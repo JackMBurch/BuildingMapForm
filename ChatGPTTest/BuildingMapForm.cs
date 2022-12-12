@@ -2,11 +2,13 @@ namespace BuildingMap
 {
     public partial class BuildingMapForm : Form
     {
-        // The images for the clean and dirty floors and empty and full trash cans.
-        private Image floorCleanImage = Image.FromFile("C:\\Users\\jackb\\Pictures\\chatGPT\\floor_clean.png");
-        private Image floorDirtyImage = Image.FromFile("C:\\Users\\jackb\\Pictures\\chatGPT\\floor_dirty.png");
-        private Image trashcanEmptyImage = Image.FromFile("C:\\Users\\jackb\\Pictures\\chatGPT\\trashcan_empty.png");
-        private Image trashcanFullImage = Image.FromFile("C:\\Users\\jackb\\Pictures\\chatGPT\\trashcan_full.png");
+        // The base path of the photos folder.
+        string basePath = "photos";
+
+        private Image floorCleanImage;
+        private Image floorDirtyImage;
+        private Image trashcanEmptyImage;
+        private Image trashcanFullImage;
 
         // The array of floor picture boxes and the array of trash can picture boxes.
         private PictureBox[,] floorPictureBoxes;
@@ -22,6 +24,11 @@ namespace BuildingMap
 
         public BuildingMapForm()
         {
+            // The images for the clean and dirty floors and empty and full trash cans.
+            floorCleanImage = Image.FromFile(Path.Combine(basePath, "floor_clean.png"));
+            floorDirtyImage = Image.FromFile(Path.Combine(basePath, "floor_dirty.png"));
+            trashcanEmptyImage = Image.FromFile(Path.Combine(basePath, "trashcan_empty.png"));
+            trashcanFullImage = Image.FromFile(Path.Combine(basePath, "trashcan_full.png"));
 
             // Set the form's title and size.
             this.Text = "Building Map";
